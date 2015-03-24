@@ -61,7 +61,5 @@ chef_gem "passenger" do
   
 end
 execute "passenger_module" do
-  command "passenger-install-nginx-module" <<
-    "   --auto-download  --auto  --prefix=/usr/sbin/nginx" <<
-    "    --languages=ruby "
+  command "passenger-install-nginx-module   --auto-download  --auto  --prefix=/usr/sbin/nginx --languages=ruby"
 end
