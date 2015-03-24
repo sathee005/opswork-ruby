@@ -25,7 +25,6 @@
 
 include_recipe "packages"
 include_recipe "gem_support"
-include_recipe 'apache2::service'
 
 case node[:platform]
 when "centos","redhat","amazon"
@@ -58,7 +57,6 @@ ruby_block "ensure only our passenger version is installed by deinstalling any o
 end
 
 execute "passenger_module" do
-  command 'passenger-install-apache2-module -a'
+  command 'passenger-install-nginx-module'
   creates node[:passenger][:module_path]
-  notifies :restart, "service[apache2]"
 end
