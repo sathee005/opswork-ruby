@@ -55,7 +55,11 @@ ruby_block "ensure only our passenger version is installed by deinstalling any o
     ensure_only_gem_version('passenger', node[:passenger][:version])
   end
 end
-
+chef_gem "passenger" do
+  action :install
+  version node[:passenger][:version]
+  
+end
 execute "passenger_module" do
   command 'passenger-install-nginx-module'
   creates node[:passenger][:module_path]
