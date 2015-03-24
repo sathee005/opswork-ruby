@@ -64,5 +64,4 @@ execute "passenger_module" do
   command "passenger-install-nginx-module" <<
     "   --auto-download  --auto  --prefix=/usr/sbin/nginx" <<
     "    --languages=ruby "
-  creates node[:passenger][:module_path]
 end
