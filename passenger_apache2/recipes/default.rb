@@ -61,6 +61,8 @@ chef_gem "passenger" do
   
 end
 execute "passenger_module" do
-  command 'passenger-install-nginx-module'
+  command "passenger-install-nginx-module" <<
+    " --auto-download" <<
+    "--languages=ruby"
   creates node[:passenger][:module_path]
 end
